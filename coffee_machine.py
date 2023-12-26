@@ -46,18 +46,28 @@ def display_machine_state():
         time.sleep(5)
 
 def turn_on():
-    Coffee_Machine["on"] = True
-    print("\nTurning on the coffee machine...\n")
-    time.sleep(1.5)
-    print("The coffee machine is now on.\n")
-    time.sleep(5)
+    if Coffee_Machine["on"]:
+        print("\nThe coffee machine is already on.\n")
+        time.sleep(5)
+        return
+    else:
+        Coffee_Machine["on"] = True
+        print("\nTurning on the coffee machine...\n")
+        time.sleep(1.5)
+        print("The coffee machine is now on.\n")
+        time.sleep(5)
 
 def turn_off():
-    Coffee_Machine["on"] = False
-    print("\nTurning off the coffee machine...\n")
-    time.sleep(1.5)
-    print("The coffee machine is now off.\n")
-    time.sleep(5)
+    if not Coffee_Machine["on"]:
+        print("\nThe coffee machine is already off.\n")
+        time.sleep(5)
+        return
+    else:
+        Coffee_Machine["on"] = False
+        print("\nTurning off the coffee machine...\n")
+        time.sleep(1.5)
+        print("The coffee machine is now off.\n")
+        time.sleep(5)
 
 def refill_machine():
     if not Coffee_Machine["on"]:
